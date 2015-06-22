@@ -354,7 +354,7 @@
 	// Calendar (empty) HTML template
 	Calendar.template = "<table class='table-condensed'><thead>" // calendar headers include the month and day names
 		+ "<tr><th class='prev month'>&laquo;</th><th class='month name' colspan='5'></th><th class='next month'>&raquo;</th></tr>"
-		+ "<tr>" + repeat("<th class='dow'/>", 7) + "</tr>"
+		+ "<tr>" + repeat("<th scope='col' class='dow'/>", 7) + "</tr>"
 		+ "</thead><tbody>" // now comes 6 * 7 days
 		+ repeat("<tr>" + repeat("<td class='day'/>", 7) + "</tr>", 6)
 		+ "</tbody></table>";
