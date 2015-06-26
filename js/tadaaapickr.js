@@ -301,10 +301,15 @@
 					return this.navigate(-1, "month");
 
 				case 9:  // TAB
-				case 13: // ENTER
 					// Send the 'Date change' event
 					this.$target.trigger({type: "dateChange", date: this.selectedDate});
 					return this.hide();
+
+				case 13: // ENTER
+					// Send the 'Date change' event
+					this.$target.trigger({type: "dateChange", date: this.selectedDate});
+					this.hide();
+					return false;
 
 				case 27: // ESC
 					return this.hide();
