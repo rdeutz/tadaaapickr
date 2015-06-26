@@ -301,10 +301,15 @@
 					return this.navigate(-1, "month");
 
 				case 9:  // TAB
-				case 13: // ENTER
 					// Send the 'Date change' event
 					this.$target.trigger({type: "dateChange", date: this.selectedDate});
 					return this.hide();
+
+				case 13: // ENTER
+					// Send the 'Date change' event
+					this.$target.trigger({type: "dateChange", date: this.selectedDate});
+					this.hide();
+					return false;
 
 				case 27: // ESC
 					return this.hide();
@@ -354,7 +359,7 @@
 	// Calendar (empty) HTML template
 	Calendar.template = "<table class='table-condensed'><thead>" // calendar headers include the month and day names
 		+ "<tr><th class='prev month'>&laquo;</th><th class='month name' colspan='5'></th><th class='next month'>&raquo;</th></tr>"
-		+ "<tr>" + repeat("<th class='dow'/>", 7) + "</tr>"
+		+ "<tr>" + repeat("<th scope='col' class='dow'/>", 7) + "</tr>"
 		+ "</thead><tbody>" // now comes 6 * 7 days
 		+ repeat("<tr>" + repeat("<td class='day'/>", 7) + "</tr>", 6)
 		+ "</tbody></table>";
